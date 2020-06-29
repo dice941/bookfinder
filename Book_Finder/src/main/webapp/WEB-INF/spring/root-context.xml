@@ -9,7 +9,7 @@
         <!-- 기본 인코딩 타입 -->
         <prop key="encType">UTF-8</prop>
         <!-- 업로드 디렉토리 -->
-        <prop key="uploadDir">{자신의_workspace_경로}/upload</prop>
+        <prop key="uploadDir">C:/_spring/workspace/upload</prop>
         <!-- 업로드 디렉토리에 대한 WebPath -->
         <prop key="uploadPath">/upload</prop>
         <!-- 최대 업로드 가능 용량 (-1인 경우 무제한)-->
@@ -17,13 +17,13 @@
         <!-- 기본 도메인(쿠키설정용) -->
         <prop key="domain">localhost</prop>
         <!-- 메일발송 서버 주소 -->
-        <prop key="smtpHost">smtp.gmail.com</prop>
+        <prop key="smtpHost">smtp.naver.com</prop>
         <!-- 메일발송 서버 포트 -->
         <prop key="smtpPort">465</prop>
         <!-- 메일발송 서버 계정 -->
-        <prop key="smtpUsername">leekh4232@gmail.com</prop>
+        <prop key="smtpUsername">1ks33@naver.com</prop>
         <!-- 메일발송 서버 비밀번호 -->
-        <prop key="smtpPassword">wcythwfazyzzjhjh</prop>
+        <prop key="smtpPassword">qwer123456</prop>
     </util:properties>
 
     <!-- DB연동에 필요한 환경설정 값 -->
@@ -33,19 +33,19 @@
         <!-- 데이터베이스 포트번호 -->
         <prop key="dbPort">3306</prop>
         <!-- 데이터베이스 이름 -->
-        <prop key="dbName">{데이터베이스이름}</prop>
+        <prop key="dbName">bookfinder</prop>
         <!-- 데이터베이스 문자셋 -->
         <prop key="dbCharset">utf8</prop>
         <!-- 데이터베이스 계정명 -->
-        <prop key="dbUsername">{계정명}</prop>
+        <prop key="dbUsername">root</prop>
         <!-- 데이터베이스 비밀번호 -->
-        <prop key="dbPassword">{계정비밀번호}</prop>
+        <prop key="dbPassword">qwer123456</prop>
         <!-- Mapper 파일들이 위치할 '/src/main/resources' 하위의 경로 -->
         <prop key="mapperPath">/mappers/**/*Mapper.xml</prop>
     </util:properties>
 
     <!-- WebHelper 주입 설정 -->
-    <bean id="webHelper" class="{자신의_패키지_이름}.helper.WebHelper">
+    <bean id="webHelper" class="com.BookFinder.helper.WebHelper">
         <property name="encType" value="#{config['encType']}" />
         <property name="uploadDir" value="#{config['uploadDir']}" />
         <property name="uploadPath" value="#{config['uploadPath']}" />
@@ -58,10 +58,10 @@
     </bean>
 
     <!-- RegexHelper 주입 설정 -->
-    <bean id="regexHelper" class="{자신의_패키지_이름}.helper.RegexHelper" />
+    <bean id="regexHelper" class="com.BookFinder.helper.RegexHelper" />
 
     <!-- RetrofitHelper 주입 설정 -->
-    <bean id="retrofitHelper" class="{자신의_패키지_이름}.helper.RetrofitHelper" />
+    <bean id="retrofitHelper" class="com.BookFinder.helper.RetrofitHelper" />
 
     <!-- 메일 발송에 필요한 정보를 저장하는 객체 정의 -->
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
@@ -83,7 +83,7 @@
     </bean>
 
     <!-- Mail Helper 주입 설정 -->
-    <bean id="mailHelper" class="{자신의_패키지_이름}.helper.MailHelper">
+    <bean id="mailHelper" class="com.BookFinder.helper.MailHelper">
         <constructor-arg ref="mailSender" />
     </bean>
 
