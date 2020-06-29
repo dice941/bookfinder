@@ -23,7 +23,7 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-
+<context:component-scan base-package="com.BookFinder.service.impl" />
 	<context:component-scan base-package="com.BookFinder.ctrl" />
 	<!-- 인터셉터 등록 -->
 	<interceptors>
