@@ -8,11 +8,21 @@
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
-		<java-version>1.6</java-version>
+		<java-version>1.8</java-version>
 		<org.springframework-version>5.2.1.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.9.4</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
+	
+	<!-- 저장소 주소 추가 -->
+	<repositories>
+		<!-- UserAgent 모듈 -->
+		<repository>
+			<id>clojars</id>
+			<url>http://clojars.org/repo/</url>
+		</repository>
+	</repositories>
+	
 	<dependencies>
 		<!-- Spring -->
 		<dependency>
