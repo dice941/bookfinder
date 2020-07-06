@@ -1,7 +1,5 @@
 package com.BookFinder.ctrl;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
