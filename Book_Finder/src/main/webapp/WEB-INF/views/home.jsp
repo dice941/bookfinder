@@ -28,8 +28,7 @@
 		</div>
 
 		<!-- Left and right controls -->
-		<a class="carousel-control-prev" href="#home_img_slide" data-slide="prev"> <span class="carousel-control-prev-icon"></span></a>
-		<a class="carousel-control-next" href="#home_img_slide" data-slide="next"> <span class="carousel-control-next-icon"></span></a>
+		<a class="carousel-control-prev" href="#home_img_slide" data-slide="prev"> <span class="carousel-control-prev-icon"></span></a> <a class="carousel-control-next" href="#home_img_slide" data-slide="next"> <span class="carousel-control-next-icon"></span></a>
 	</div>
 	<br>
 </div>
@@ -46,7 +45,9 @@
 			</div>
 			<div class="col-md-10">
 				<div class="card-body">
-					<a href="#"><h5 class="card-title">review title</h5></a>
+					<h5 class="card-title">
+						<a href="#">review title</a>
+					</h5>
 					<p class="card-text">review content</p>
 					<p class="card-text">
 						<small class="text-muted">review writer</small><small class="text-muted"> - Last updated 3 mins ago</small>
@@ -62,7 +63,9 @@
 			</div>
 			<div class="col-md-10">
 				<div class="card-body">
-					<a href="#"><h5 class="card-title">review title</h5></a>
+					<h5 class="card-title">
+						<a href="#">review title</a>
+					</h5>
 					<p class="card-text">review content</p>
 					<p class="card-text">
 						<small class="text-muted">review writer</small><small class="text-muted"> - Last updated 3 mins ago</small>
@@ -78,7 +81,9 @@
 			</div>
 			<div class="col-md-10">
 				<div class="card-body">
-					<a href="#"><h5 class="card-title">review title</h5></a>
+					<h5 class="card-title">
+						<a href="#">review title</a>
+					</h5>
 					<p class="card-text">review content</p>
 					<p class="card-text">
 						<small class="text-muted">review writer</small><small class="text-muted"> - Last updated 3 mins ago</small>

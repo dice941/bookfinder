@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/rank/*")
-public class RankController
+@RequestMapping("/intro/*")
+public class IntroController
 {
-	private static final Logger log = LoggerFactory.getLogger(RankController.class);
+	private static final Logger log = LoggerFactory.getLogger(IntroController.class);
 
-	@GetMapping("/list")
+	@GetMapping("/view")
 	public void view(Model model)
 	{
-		log.info(">>>>>> 랭크/리스트 - 이동 - GET");
-		
+		log.info(">>>>>> 인트로 이동 - GET");
 	}
 }

@@ -1,0 +1,14 @@
+create sequence seq_review;
+
+create table tbl_review(
+rvno number(10,0),
+title varchar2(200) not null,
+content varchar2(2000) not null,
+writer varchar2(50) not null,
+regd8 date default sysdate,
+modd8 date default sysdate);
+
+alter table tbl_review add constraint pk_review
+primary key (rvno);
+
+

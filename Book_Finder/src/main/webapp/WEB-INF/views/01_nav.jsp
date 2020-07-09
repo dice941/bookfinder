@@ -5,9 +5,9 @@
 		<a class="navbar-brand" href="/"> <b><em>BookFinder</em></b></a>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="./20_intro.html">소개 </a></li>
-			<li class="nav-item"><a class="nav-link" href="./30_rank.html">랭킹 </a></li>
-			<li class="nav-item"><a class="nav-link" href="./40_review.html">리뷰 </a></li>
+			<li class="nav-item"><a class="nav-link" href="/intro/view">소개 </a></li>
+			<li class="nav-item"><a class="nav-link" href="/rank/list">랭킹 </a></li>
+			<li class="nav-item"><a class="nav-link" href="/review/list">리뷰 </a></li>
 			<li class="nav-item"><a class="nav-link" href="./50_map.html">지도 </a></li>
 			<li class="nav-item"><a class="nav-link" href="./60_notice.html">공지사항 </a></li>
 			<li class="nav-item"><a class="nav-link" href="./70_cscenter.html">고객센터 </a></li>
