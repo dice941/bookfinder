@@ -17,7 +17,5 @@ public interface ReviewService
 
 	public void remove(Integer rvno);
 
-	public void removeImg(Integer rvno);
-
 	public int totalCount(Criteria cri);
 }

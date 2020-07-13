@@ -1,5 +1,7 @@
 package com.BookFinder.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -16,6 +18,7 @@ import com.BookFinder.service.ReviewService;
 @Service
 public class ReviewServiceImp implements ReviewService
 {
+	private static final Logger log = LoggerFactory.getLogger(ReviewServiceImp.class);
 	@Inject
 	private ReviewDAO rvdao;// 다형성 이용 , 컴포넌트에 이미 올라와있기 때문에 끌어오기 가능
 
@@ -49,13 +52,6 @@ public class ReviewServiceImp implements ReviewService
 	public void remove(Integer rvno)
 	{
 		rvdao.delete(rvno);
-	}
-
-	@Override
-	public void removeImg(Integer rvno)
-	{
-		rvdao.delete(rvno);
-
 	}
 
 	@Override

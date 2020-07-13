@@ -29,7 +29,7 @@
 		<Logger name="jdbc.sqltiming" level="INFO" additivity="false">
 			<AppenderRef ref="Console" />
 		</Logger>
-		<Logger name="java.sql" level="INFO" additivity="false">
+		<Logger name="java.sql" level="debug" additivity="false">
 			<AppenderRef ref="Console" />
 		</Logger>
 		<Logger name="egovframework" level="INFO" additivity="false">

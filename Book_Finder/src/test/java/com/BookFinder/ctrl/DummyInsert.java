@@ -23,9 +23,9 @@ public class DummyInsert
 		for (int i = 0; i < 234; i++)
 		{
 			ReviewVO rvvo = new ReviewVO();
-			rvvo.setTitle(i + "번째 상품명");
-			rvvo.setWriter("더미 작성자" + i);
-			rvvo.setContent("더미 상세 내용" + i);
+			rvvo.setRvtitle(i + "번째 상품명");
+			rvvo.setRvwriter("더미 작성자" + i);
+			rvvo.setRvcontent("더미 상세 내용" + i);
 			rvdao.insert(rvvo);
 		}
 	}

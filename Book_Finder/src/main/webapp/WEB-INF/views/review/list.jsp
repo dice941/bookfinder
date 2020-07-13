@@ -52,12 +52,10 @@
 							<a href="#"><img src="https://via.placeholder.com/100x100" class="card-img" alt="이미지가 없습니다."></a>
 						</div>
 						<div class="col-4">
-							<a href="/review/detail?rvno=${rvvo.rvno }&pageNum=${pgvo.cri.pageNum }&amount=${pgvo.cri.amount }&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }"> 
-								${rvvo.title }<span class="badge badge-pill badge-primary">${rvvo.commentcnt }</span>
-							</a>
+							<a href="/review/detail?rvno=${rvvo.rvno }&pageNum=${pgvo.cri.pageNum }&amount=${pgvo.cri.amount }&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }"> ${rvvo.rvtitle } </a>
 						</div>
 						<div class="col-2">${rvvo.rvno }</div>
-						<div class="col-2">${rvvo.writer }</div>
+						<div class="col-2">${rvvo.rvwriter }</div>
 						<div class="col-2">${rvvo.modd8 }</div>
 					</div>
 				</c:forEach>
@@ -68,21 +66,6 @@
 				</tr>
 			</c:otherwise>
 		</c:choose>
-
-
-		<div class="mx-3 py-3 row text-center">
-			<div class="col-2">
-				<a href="#"><img src="https://via.placeholder.com/100x100" class="card-img" alt="이미지가 없습니다."></a>
-			</div>
-			<div class="col-4">
-				<a href="#">b_title</a>
-			</div>
-			<div class="col-2">b_writer</div>
-			<div class="col-2">b_publisher</div>
-			<div class="col-2">b_price</div>
-		</div>
-
-		<br>
 		<!-- 페이지네이션 시작 -->
 		<nav aria-label="Pagination">
 			<ul class="pagination justify-content-center">

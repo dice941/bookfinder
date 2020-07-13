@@ -5,61 +5,38 @@ import java.sql.Date;
 public class ReviewVO
 {
 	private int rvno;
-	private String title;
-	private String writer;
-	private String content;
+	private String rvtitle;
+	private String rvwriter;
+	private String rvcontent;
 	private Date regd8;
 	private Date modd8;
 	private int readcount;
-	private String imgfile;
-	private int commentcnt;
 
 	public ReviewVO()
 	{
 	}
 
-	public ReviewVO(String title, String writer, String content)
+	public ReviewVO(String rvtitle, String rvwriter, String rvcontent)
 	{
-		this.title = title;
-		this.writer = writer;
-		this.content = content;
+		this.rvtitle = rvtitle;
+		this.rvwriter = rvwriter;
+		this.rvcontent = rvcontent;
+		System.out.printf(rvtitle, rvwriter, rvcontent);
 	}
 
-	public int getReadcount()
-	{
-		return readcount;
-	}
-
-	public void setReadcount(int readcount)
-	{
-		this.readcount = readcount;
-	}
-
-	public String getImgfile()
-	{
-		return imgfile;
-	}
-
-	public void setImgfile(String imgfile)
-	{
-		this.imgfile = imgfile;
-	}
-
-	public int getCommentcnt()
-	{
-		return commentcnt;
-	}
-
-	public void setCommentcnt(int commentcnt)
-	{
-		this.commentcnt = commentcnt;
-	}
-
-	public ReviewVO(int rvno, String title, String writer)
+	public ReviewVO(int rvno, String rvtitle, String rvwriter)
 	{
 		this.rvno = rvno;
-		this.title = title;
-		this.writer = writer;
+		this.rvtitle = rvtitle;
+		this.rvwriter = rvwriter;
+	}
+
+	public ReviewVO(int rvno, String rvtitle, String rvwriter, String rvcontent)
+	{
+		this.rvno = rvno;
+		this.rvtitle = rvtitle;
+		this.rvwriter = rvwriter;
+		this.rvcontent = rvcontent;
 	}
 
 	public int getRvno()
@@ -72,34 +49,34 @@ public class ReviewVO
 		this.rvno = rvno;
 	}
 
-	public String getTitle()
+	public String getRvtitle()
 	{
-		return title;
+		return rvtitle;
 	}
 
-	public void setTitle(String title)
+	public void setRvtitle(String rvtitle)
 	{
-		this.title = title;
+		this.rvtitle = rvtitle;
 	}
 
-	public String getWriter()
+	public String getRvwriter()
 	{
-		return writer;
+		return rvwriter;
 	}
 
-	public void setWriter(String writer)
+	public void setRvwriter(String rvwriter)
 	{
-		this.writer = writer;
+		this.rvwriter = rvwriter;
 	}
 
-	public String getContent()
+	public String getRvcontent()
 	{
-		return content;
+		return rvcontent;
 	}
 
-	public void setContent(String content)
+	public void setRvcontent(String rvcontent)
 	{
-		this.content = content;
+		this.rvcontent = rvcontent;
 	}
 
 	public Date getRegd8()
@@ -121,5 +98,16 @@ public class ReviewVO
 	{
 		this.modd8 = modd8;
 	}
+
+	public int getReadcount()
+	{
+		return readcount;
+	}
+
+	public void setReadcount(int readcount)
+	{
+		this.readcount = readcount;
+	}
+
 
 }

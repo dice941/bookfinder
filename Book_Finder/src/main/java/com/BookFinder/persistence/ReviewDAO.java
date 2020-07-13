@@ -21,7 +21,5 @@ public interface ReviewDAO
 	
 	public void delete(Integer rvno);
 	
-	public void deleteImg(Integer rvno);
-
 	public int selectOne(Criteria cri);
 }

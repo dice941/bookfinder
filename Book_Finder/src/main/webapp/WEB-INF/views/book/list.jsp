@@ -4,7 +4,7 @@
 <jsp:include page="../01_nav.jsp"></jsp:include>
 <div class=container-fluide>
 	<h2 class="float-left mt-3">
-		도서 검색 서비스<a href="/tip/write" class="btn btn-outline-primary">책 입고</a>
+		도서 검색 서비스<a href="/book/write" class="btn btn-outline-primary">책 입고</a>
 	</h2>
 	<div class="float-right form-group">
 		<form class="form-inline mt-3" action="/book/list">
@@ -25,11 +25,11 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>글번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>조회수</th>
-				<th>등록날짜</th>
+				<th>책 번호</th>
+				<th>도서 이름</th>
+				<th>저자</th>
+				<th>출판사</th>
+				<th>금액</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -38,10 +38,10 @@
 					<c:forEach items="${list }" var="bvo">
 						<tr>
 							<td>${bvo.bno }</td>
-							<td><a href="/book/detail?bno=${bvo.bno }&pageNum=${pgvo.cri.pageNum }&amount=${pgvo.cri.amount }&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }"> ${bvo.title }<span class="badge badge-pill badge-primary">${bvo.commentcnt }</span></a></td>
-							<td>${tvo.writer }</td>
-							<td>${tvo.readcount }</td>
-							<td>${tvo.modd8 }</td>
+							<td><a href="/book/detail?bno=${bvo.bno }&pageNum=${pgvo.cri.pageNum }&amount=${pgvo.cri.amount }&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }"> ${bvo.btitle }</a></td>
+							<td>${bvo.writer }</td>
+							<td>${bvo.price }</td>
+							<td>${bvo.modd8 }</td>
 						</tr>
 					</c:forEach>
 				</c:when>

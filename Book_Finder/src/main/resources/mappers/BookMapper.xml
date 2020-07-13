@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BookMapper">
+	<sql id="cri">
+		<if test="type != null">
+			<trim prefix=" and (" suffix=")">
+				<choose>
+					<when test="type == 'TCW'.toString()">
+						btitle like '%'||#{keyword}||'%' or
+						content like '%'||#{keyword}||'%' or
+						writer like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'TC'.toString()">
+						btitle like '%'||#{keyword}||'%' or
+						content like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'TW'.toString()">
+						btitle like '%'||#{keyword}||'%' or
+						writer like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'CW'.toString()">
+						content like '%'||#{keyword}||'%' or
+						writer like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'T'.toString()">
+						btitle like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'C'.toString()">
+						content like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'W'.toString()">
+						writer like '%'||#{keyword}||'%'
+					</when>
+				</choose>
+			</trim>
+		</if>
+	</sql>
+	<insert id="add" parameterType="bvo">
+		<![CDATA[	
+		insert into tbl_book(bno, btitle, writer, content, publisher, price, regd8, modd8, point, bimgfile )
+		values(seq_book.nextval, #{btitle}, #{writer}, #{content}, #{publisher}, #{price}, sysdate,
+		sysdate, 0, #{bimgfile})
+		]]>
+	</insert>
+	<select id="list" resultType="bvo">
+		<![CDATA[
+		SELECT bno, btitle, writer, publisher, price
+		FROM
+		(SELECT /*+INDEX_DESC(tbl_book tbl_book_pk)*/
+			rownum rn, bno, btitle, writer, publisher, price 
+		FROM TBL_BOOK 
+		WHERE bno > 0
+			]]>
+		<include refid="cri" />
+		<![CDATA[		
+		and rownum <= #{pageNum}*#{amount})
+		WHERE rn > (#{pageNum}-1)*#{amount}
+	 	]]>
+	</select>
+	<select id="detail" parameterType="java.lang.Integer" resultType="bvo">
+		select * from tbl_book where bno = #{bno}
+	</select>
+	<update id="modify" parameterType="bvo">
+		update
+		tbl_book
+		set
+		btitle = #{btitle}, writer = #{writer}, content = #{content}, publisher=#{publisher}, price=#{price}, modd8 = sysdate, bimgfile = #{bimgfile}
+		where
+		bno = #{bno}
+	</update>
+	<delete id="remove" parameterType="java.lang.Integer">
+		delete from tbl_book where bno = #{bno}
+	</delete>
+	<update id="rmImg" parameterType="java.util.HashMap">
+		update tbl_book set bimgfile = #{bimgfile} where bno = #{bno}
+	</update>
+	<select id="total" resultType="java.lang.Integer" parameterType="cri">
+		select count(bno) from tbl_book where bno > 0
+		<include refid="cri" />
+	</select>
+</mapper>

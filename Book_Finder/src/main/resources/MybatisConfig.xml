@@ -3,11 +3,13 @@
 
 <configuration>
 	<typeAliases>
+		<typeAlias type="com.BookFinder.domain.BookVO" alias="bvo" />
 		<typeAlias type="com.BookFinder.domain.ReviewVO" alias="rvvo" />
 		<typeAlias alias="cri" type="com.BookFinder.domain.Criteria" />
-		<!-- <typeAlias alias="tcvo" type="com.myweb.domain.TipCommentVO" />
-		<typeAlias alias="nvo" type="com.myweb.domain.NoticeVO" />
-		<typeAlias alias="members" type="com.myweb.domain.MemberVO"/> -->
+		<!--
+		<typeAlias alias="nvo" type="com.BookFinder.domain.NoticeVO" />
+		<typeAlias alias="members" type="com.BookFinder.domain.MemberVO"/> 
+		-->
 	</typeAliases>
 </configuration>
 

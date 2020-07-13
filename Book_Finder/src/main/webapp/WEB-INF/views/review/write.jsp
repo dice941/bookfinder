@@ -5,24 +5,24 @@
 
 <!-- 페이지 내용 시작 -->
 <div class="container bg-secondary py-3">
-	<div class="container mb-3">
+	<!-- 	<div class="container mb-3">
 		<h1 class="display-4">책 리뷰</h1>
-	</div>
-	<div class="container py-3">
-		<div class="input-group">
-			<div class="input-group-prepend">
-				<span class="input-group-text">내용 쓰기</span>
-			</div>
-			<textarea class="form-control" rows="15"></textarea>
+	</div> -->
+	<h2>리뷰 작성</h2>
+	<form method="post">
+		<div class="form-group">
+			<label for="rvtitle">title : </label> 
+			<input type="text" class="form-control" placeholder="리뷰 제목을 입력해주세요" id="rvtitle" name="rvtitle">
 		</div>
-	</div>
-	<div align="right" class="form-group py-3">
-		<div class="col-5">
-			<button type="submit" class="btn btn-primary btn-lg">작성완료</button>
-			<button type="submit" class="btn btn-danger btn-lg" onclick="location.href='40_review.html'">취소하기</button>
+		<div class="form-group">
+			<label for="rvwriter">writer : </label> <input type="text" class="form-control" placeholder="닉네임을 입력해주세요" id="rvwriter" name="rvwriter">
 		</div>
-
-	</div>
+		<div class="form-group">
+			<label for="rvcontent">content : </label>
+			<textarea class="form-control" rows="5" id="rvcontent" name="rvcontent"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary">등록</button>
+	</form>
 </div>
 
 <!-- 페이지 내용 끝 -->

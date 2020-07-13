@@ -65,16 +65,6 @@ public class ReviewDAOImp implements ReviewDAO
 	}
 
 	@Override
-	public void deleteImg(Integer rvno)
-	{
-		Map<String, Object> map = new HashMap<>();
-		map.put("rvno", rvno);
-		map.put("imgfile", "NONE");
-		sql.update(ns + "rmImg", map);
-
-	}
-
-	@Override
 	public int selectOne(Criteria cri)
 	{
 		return sql.selectOne(ns + "total", cri);
