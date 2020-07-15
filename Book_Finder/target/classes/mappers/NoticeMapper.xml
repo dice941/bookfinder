@@ -2,22 +2,22 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="BookMapper">
+<mapper namespace="NoticeMapper">
 	<sql id="cri">
 		<if test="type != null">
 			<trim prefix=" and (" suffix=")">
 				<choose>
 					<when test="type == 'TCW'.toString()">
-						btitle like '%'||#{keyword}||'%' or
+						title like '%'||#{keyword}||'%' or
 						content like '%'||#{keyword}||'%' or
 						writer like '%'||#{keyword}||'%'
 					</when>
 					<when test="type == 'TC'.toString()">
-						btitle like '%'||#{keyword}||'%' or
+						title like '%'||#{keyword}||'%' or
 						content like '%'||#{keyword}||'%'
 					</when>
 					<when test="type == 'TW'.toString()">
-						btitle like '%'||#{keyword}||'%' or
+						title like '%'||#{keyword}||'%' or
 						writer like '%'||#{keyword}||'%'
 					</when>
 					<when test="type == 'CW'.toString()">
@@ -25,7 +25,7 @@
 						writer like '%'||#{keyword}||'%'
 					</when>
 					<when test="type == 'T'.toString()">
-						btitle like '%'||#{keyword}||'%'
+						title like '%'||#{keyword}||'%'
 					</when>
 					<when test="type == 'C'.toString()">
 						content like '%'||#{keyword}||'%'
@@ -37,21 +37,20 @@
 			</trim>
 		</if>
 	</sql>
-	<insert id="add" parameterType="bvo">
+	<insert id="add" parameterType="nvo">
 		<![CDATA[	
-		insert into tbl_book(bno, btitle, writer, content, publisher, price, regd8, modd8, point, bimgfile )
-		values(seq_book.nextval, #{btitle}, #{writer}, #{content}, #{publisher}, #{price}, sysdate,
-		sysdate, 0, #{bimgfile})
+		insert into tbl_notice(nno, title, writer, content, regd8, modd8, imgfile )
+		values(seq_notice.nextval, #{title}, #{writer}, #{content},sysdate,	sysdate, #{imgfile})
 		]]>
 	</insert>
-	<select id="list" resultType="bvo">
+	<select id="list" resultType="nvo">
 		<![CDATA[
-		SELECT bno, btitle, writer, publisher, price
+		SELECT nno, title, writer, modd8
 		FROM
-		(SELECT /*+INDEX_DESC(tbl_book tbl_book_pk)*/
-			rownum rn, bno, btitle, writer, publisher, price 
-		FROM TBL_BOOK 
-		WHERE bno > 0
+		(SELECT /*+INDEX_DESC(tbl_notice tbl_notice_pk)*/
+			rownum rn, nno, title, writer, modd8
+		FROM TBL_notice
+		WHERE nno > 0
 			]]>
 		<include refid="cri" />
 		<![CDATA[		
@@ -59,25 +58,25 @@
 		WHERE rn > (#{pageNum}-1)*#{amount}
 	 	]]>
 	</select>
-	<select id="detail" parameterType="java.lang.Integer" resultType="bvo">
-		select * from tbl_book where bno = #{bno}
+	<select id="detail" parameterType="java.lang.Integer" resultType="nvo">
+		select * from tbl_notice where nno = #{nno}
 	</select>
-	<update id="modify" parameterType="bvo">
+	<update id="modify" parameterType="nvo">
 		update
-			tbl_book
+			tbl_notice
 		set
-			btitle = #{btitle},  writer = #{writer}, content = #{content}, publisher=#{publisher}, price=#{price}, modd8 = sysdate, bimgfile = #{bimgfile}
+			title = #{title}, writer = #{writer}, content = #{content},  modd8 = sysdate, imgfile = #{imgfile}
 		where
-			bno = #{bno}
+			nno = #{nno}
 	</update>
 	<delete id="remove" parameterType="java.lang.Integer">
-		delete from tbl_book where bno = #{bno}
+		delete from tbl_notice where nno = #{nno}
 	</delete>
 	<update id="rmImg" parameterType="java.util.HashMap">
-		update tbl_book set bimgfile = #{bimgfile} where bno = #{bno}
+		update tbl_notice set imgfile = #{imgfile} where nno = #{nno}
 	</update>
 	<select id="total" resultType="java.lang.Integer" parameterType="cri">
-		select count(bno) from tbl_book where bno > 0
+		select count(nno) from tbl_notice where nno > 0
 		<include refid="cri" />
 	</select>
 </mapper>

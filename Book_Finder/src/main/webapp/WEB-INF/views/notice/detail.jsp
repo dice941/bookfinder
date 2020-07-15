@@ -4,30 +4,31 @@
 <jsp:include page="../01_nav.jsp"></jsp:include>
 
 <!-- 페이지 내용 시작 -->
-<div class="container bg-secondary py-3">
+<div class="container bg-info py-3">
 	<div class="container mb-3">
-		<h1 class="display-4">공지사항</h1>
+		<h3>공지사항 상세보기</h3>
 	</div>
 	<div class="table">
 		<table class="table table-bordered">
 			<tr>
 				<th width="150" class="text-center">제목</th>
-				<td>n_title</td>
+				<td>${nvo.title }</td>
 			</tr>
 			<tr>
 				<th width="150" class="text-center">날짜</th>
-				<td>n_modd8</td>
+				<td>${nvo.modd8 }</td>
+			</tr>
+			<tr>
+				<th width="150" height="300" class="text-center">내용</th>
+				<td>${nvo.content }</td>
 			</tr>
 		</table>
 	</div>
-	<div class="container py-3">
-		n_content 책의 내용이 들어가는 자리입니다.<br> <br> <br> <br> <br> <br> <br>
-	</div>
+
 	<div align="right" class="form-group py-3">
 		<div class="col-5">
-			<button type="submit" class="btn btn-primary btn-lg">목록으로</button>
+			<a href="/notice/modify?nno=${rvvo.rvno }&pageNum=${cri.pageNum }&amount=${cri.amount }" class="btn btn-outline-warning">수정</a> <a href="/notice/list?pageNum=${cri.pageNum }&amount=${cri.amount }" class="btn btn-outline-secondary">목록</a>
 		</div>
-
 	</div>
 </div>
 

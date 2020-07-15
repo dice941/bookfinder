@@ -5,6 +5,7 @@
 	<typeAliases>
 		<typeAlias type="com.BookFinder.domain.BookVO" alias="bvo" />
 		<typeAlias type="com.BookFinder.domain.ReviewVO" alias="rvvo" />
+		<typeAlias type="com.BookFinder.domain.NoticeVO" alias="nvo" />
 		<typeAlias alias="cri" type="com.BookFinder.domain.Criteria" />
 		<!--
 		<typeAlias alias="nvo" type="com.BookFinder.domain.NoticeVO" />

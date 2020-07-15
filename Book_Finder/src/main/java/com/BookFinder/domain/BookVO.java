@@ -50,6 +50,25 @@ public class BookVO
 		this.content = content;
 	}
 
+	public BookVO(String btitle, String writer, String content, String publisher, int price)
+	{
+		this.btitle = btitle;
+		this.writer = writer;
+		this.content = content;
+		this.publisher = publisher;
+		this.price = price;
+	}
+
+	public BookVO(int bno, String btitle, String writer, String content, String publisher, int price)
+	{
+		this.bno = bno;
+		this.btitle = btitle;
+		this.writer = writer;
+		this.content = content;
+		this.publisher = publisher;
+		this.price = price;
+	}
+
 	public int getBno()
 	{
 		return bno;

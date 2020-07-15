@@ -64,11 +64,11 @@
 	</select>
 	<update id="modify" parameterType="bvo">
 		update
-		tbl_book
+			tbl_book
 		set
-		btitle = #{btitle}, writer = #{writer}, content = #{content}, publisher=#{publisher}, price=#{price}, modd8 = sysdate, bimgfile = #{bimgfile}
+			btitle = #{btitle},  writer = #{writer}, content = #{content}, publisher=#{publisher}, price=#{price}, modd8 = sysdate, bimgfile = #{bimgfile}
 		where
-		bno = #{bno}
+			bno = #{bno}
 	</update>
 	<delete id="remove" parameterType="java.lang.Integer">
 		delete from tbl_book where bno = #{bno}

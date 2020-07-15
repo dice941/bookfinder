@@ -9,19 +9,23 @@
 	<table class="table table-bordered">
 		<tr>
 			<th>등록 번호</th>
-			<td><input type="text" name="bno" value="${bvo.bno }" readonly class="form-control"></td>
+			<td><input type="text" name="bno" value="${bvo.bno }" readonly class="form-control" placeholder="제목"></td>
 		</tr>
 		<tr>
 			<th>도서 명</th>
-			<td><input type="text" name="btitle" value="${bvo.btitle }" class="form-control"></td>
+			<td><input type="text" name="btitle" value="${bvo.btitle }" class="form-control" placeholder="작성자"></td>
 		</tr>
 		<tr>
 			<th>저자</th>
 			<td><input type="text" name="writer" value="${bvo.writer }" class="form-control"></td>
 		</tr>
 		<tr>
-			<th>최종 수정일</th>
-			<td>${pvo.modd8 }</td>
+			<th>출판사</th>
+			<td><input type="text" name="publisher" value="${bvo.publisher }" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>금액</th>
+			<td><input type="text" name="price" value="${bvo.price }" class="form-control"></td>
 		</tr>
 		<tr>
 			<th>도서 상세 내용</th>
@@ -29,13 +33,14 @@
 		</tr>
 		<tr>
 			<th rowspan="2">도서 이미지</th>
-			<td><c:choose>
+			<td>
+				<c:choose>
 					<c:when test="${!bvo.bimgfile.equals('NONE') }">
 						<img src="/images/${bvo.bimgfile }" width="33%">
 					</c:when>
 					<c:otherwise>
-					${bvo.bimgfile }
-				</c:otherwise>
+						${bvo.bimgfile }
+					</c:otherwise>
 				</c:choose>
 		</tr>
 		<tr>

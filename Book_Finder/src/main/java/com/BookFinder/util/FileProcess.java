@@ -34,7 +34,7 @@ public class FileProcess
 		int price = Integer.parseInt(req.getParameter("price"));
 		MultipartFile bimgfile = req.getFile("bimgfile");
 
-		BookVO bvo = new BookVO(btitle, writer, publisher, price, content);
+		BookVO bvo = new BookVO(btitle, writer, content, publisher, price);
 		if (bimgfile.isEmpty())
 		{
 			bvo.setBimgfile("NONE");
@@ -54,11 +54,15 @@ public class FileProcess
 		log.info(">>> 파일 수정 - Multi");
 		int bno = Integer.parseInt(req.getParameter("bno"));
 		String btitle = req.getParameter("btitle");
+		String writer = req.getParameter("writer");
 		String content = req.getParameter("content");
+		String publisher = req.getParameter("publisher");
+		int price = Integer.parseInt(req.getParameter("price"));
+
 		String bimgfile = req.getParameter("bimgfile");
 		MultipartFile new_imgfile = req.getFile("new_imgfile");
 
-		BookVO bvo = new BookVO(bno, btitle, content);
+		BookVO bvo = new BookVO(bno, btitle, writer, content, publisher, price);
 		if (new_imgfile.isEmpty())
 		{
 			bvo.setBimgfile(bimgfile);

@@ -2,10 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../00_header.jsp"></jsp:include>
 <jsp:include page="../01_nav.jsp"></jsp:include>
-<div class=container-fluide>
-	<h2 class="float-left mt-3">
-		도서 검색 서비스<a href="/book/write" class="btn btn-outline-primary">책 입고</a>
-	</h2>
+<div class="container text-center">
+	<h2 class="float-left mt-3">도서 검색 서비스</h2>
 	<div class="float-right form-group">
 		<form class="form-inline mt-3" action="/book/list">
 			<select class="form-control" name="type">
@@ -21,11 +19,19 @@
 				<button class="btn btn-success" type="submit">검색</button>
 			</div>
 		</form>
+		<a href="/book/write" class="btn btn-outline-primary float-right ml-3 mt-3">책 입고</a>
 	</div>
 	<table class="table">
+		<colgroup>
+			<col width="8%" />
+			<col width="*" />
+			<col width="15%" />
+			<col width="15%" />
+			<col width="15%" />
+		</colgroup>
 		<thead>
 			<tr>
-				<th>책 번호</th>
+				<th>도서 번호</th>
 				<th>도서 이름</th>
 				<th>저자</th>
 				<th>출판사</th>
@@ -40,8 +46,8 @@
 							<td>${bvo.bno }</td>
 							<td><a href="/book/detail?bno=${bvo.bno }&pageNum=${pgvo.cri.pageNum }&amount=${pgvo.cri.amount }&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }"> ${bvo.btitle }</a></td>
 							<td>${bvo.writer }</td>
+							<td>${bvo.publisher}</td>
 							<td>${bvo.price }</td>
-							<td>${bvo.modd8 }</td>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -53,17 +59,19 @@
 			</c:choose>
 		</tbody>
 	</table>
-	<ul class="pagination">
-		<c:if test="${pgvo.prev }">
-			<li class="page-item"><a class="page-link" href="/book/list?pageNum=${pgvo.startPage-1 }&amount=${pgvo.cri.amount}&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }">Prev</a></li>
-		</c:if>
-		<c:forEach var="i" begin="${pgvo.startPage }" end="${pgvo.endPage }">
-			<li class="page-item ${pgvo.cri.pageNum == i ? 'active' : '' }"><a class="page-link" href="/book/list?pageNum=${i }&amount=${pgvo.cri.amount}&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }">${i }</a></li>
-		</c:forEach>
-		<c:if test="${pgvo.next }">
-			<li class="page-item"><a class="page-link" href="/book/list?pageNum=${pgvo.endPage+1 }&amount=${pgvo.cri.amount}&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }">Next</a></li>
-		</c:if>
-	</ul>
+	<div class="container">
+		<ul class="pagination">
+			<c:if test="${pgvo.prev }">
+				<li class="page-item"><a class="page-link" href="/book/list?pageNum=${pgvo.startPage-1 }&amount=${pgvo.cri.amount}&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }">Prev</a></li>
+			</c:if>
+			<c:forEach var="i" begin="${pgvo.startPage }" end="${pgvo.endPage }">
+				<li class="page-item ${pgvo.cri.pageNum == i ? 'active' : '' }"><a class="page-link" href="/book/list?pageNum=${i }&amount=${pgvo.cri.amount}&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }">${i }</a></li>
+			</c:forEach>
+			<c:if test="${pgvo.next }">
+				<li class="page-item"><a class="page-link" href="/book/list?pageNum=${pgvo.endPage+1 }&amount=${pgvo.cri.amount}&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }">Next</a></li>
+			</c:if>
+		</ul>
+	</div>
 </div>
 <script>
 	$(function()
