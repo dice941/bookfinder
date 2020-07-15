@@ -106,11 +106,12 @@ public class FileProcess
 		log.info(">>> 파일 수정 - Multi");
 		int nno = Integer.parseInt(req.getParameter("nno"));
 		String title = req.getParameter("title");
+		String writer = req.getParameter("writer");
 		String content = req.getParameter("content");
 		String imgfile = req.getParameter("imgfile");
 		MultipartFile new_imgfile = req.getFile("new_imgfile");
 
-		NoticeVO nvo = new NoticeVO(nno, title, content);
+		NoticeVO nvo = new NoticeVO(nno, title, writer, content);
 		if (new_imgfile.isEmpty())
 		{
 			nvo.setImgfile(imgfile);

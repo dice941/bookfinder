@@ -70,7 +70,7 @@ public class NoticeController
 		reAttr.addAttribute("pageNum", cri.getPageNum());
 		reAttr.addAttribute("amount", cri.getAmount());
 		reAttr.addFlashAttribute("result", "modify_ok");
-		return "redirect:/notice/detail?bno=" + req.getParameter("nno");
+		return "redirect:/notice/detail?nno=" + req.getParameter("nno");
 	}
 
 	@PostMapping("/remove")

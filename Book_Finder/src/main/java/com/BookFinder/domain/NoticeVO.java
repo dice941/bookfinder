@@ -23,13 +23,6 @@ public class NoticeVO
 		this.content = content;
 	}
 
-	public NoticeVO(int nno, String title, String writer)
-	{
-		this.nno = nno;
-		this.title = title;
-		this.writer = writer;
-	}
-
 	public NoticeVO(int nno, String title, String writer, String content)
 	{
 		this.nno = nno;

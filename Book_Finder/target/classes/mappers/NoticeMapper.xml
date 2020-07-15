@@ -40,7 +40,7 @@
 	<insert id="add" parameterType="nvo">
 		<![CDATA[	
 		insert into tbl_notice(nno, title, writer, content, regd8, modd8, imgfile )
-		values(seq_notice.nextval, #{title}, #{writer}, #{content},sysdate,	sysdate, #{imgfile})
+		values(seq_notice.nextval, #{title}, #{writer}, #{content}, sysdate, sysdate, #{imgfile})
 		]]>
 	</insert>
 	<select id="list" resultType="nvo">

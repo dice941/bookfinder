@@ -27,7 +27,8 @@
 
 	<div align="right" class="form-group py-3">
 		<div class="col-5">
-			<a href="/notice/modify?nno=${rvvo.rvno }&pageNum=${cri.pageNum }&amount=${cri.amount }" class="btn btn-outline-warning">수정</a> <a href="/notice/list?pageNum=${cri.pageNum }&amount=${cri.amount }" class="btn btn-outline-secondary">목록</a>
+			<a href="/notice/modify?nno=${nvo.nno }&pageNum=${cri.pageNum }&amount=${cri.amount }" class="btn btn-outline-warning">수정</a> 
+			<a href="/notice/list?pageNum=${cri.pageNum }&amount=${cri.amount }" class="btn btn-outline-secondary">목록</a>
 		</div>
 	</div>
 </div>
