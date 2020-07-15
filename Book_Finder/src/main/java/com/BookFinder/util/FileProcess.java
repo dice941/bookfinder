@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.BookFinder.domain.BookVO;
+import com.BookFinder.domain.CsVO;
 import com.BookFinder.domain.NoticeVO;
 import com.BookFinder.domain.ReviewVO;
 
@@ -125,6 +126,30 @@ public class FileProcess
 			fileRemove(imgfile);
 		}
 		return nvo;
+	}
+
+	public CsVO cv_fs(MultipartHttpServletRequest req) throws IllegalStateException, IOException
+	{
+		log.info(">>> 파일 저장 등록 - Multi");
+		String title = req.getParameter("title");
+		String csid = req.getParameter("csid");
+		String cspw = req.getParameter("cspw");
+		String content = req.getParameter("content");
+		MultipartFile imgfile = req.getFile("imgfile");
+
+		CsVO cvo = new CsVO(title, csid, cspw, content);
+		if (imgfile.isEmpty())
+		{
+			cvo.setImgfile("NONE");
+		} else
+		{
+			String orgFileName = imgfile.getOriginalFilename(); // 첨부한 파일에서 파일이름 추출
+			String saveFileName = UUID.randomUUID().toString() + "_" + orgFileName; // 중복되지 않은 파일이름 생성
+			File file = new File(upImages + saveFileName); // 파일객체 생성
+			imgfile.transferTo(file); // 파일 객체 복사
+			cvo.setImgfile(saveFileName); // vo객체에 파일명 저장
+		}
+		return cvo;
 	}
 
 	public void fileRemove(String imgfile)

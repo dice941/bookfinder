@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CsMapper">
+	<sql id="cri">
+		<if test="type != null">
+			<trim prefix=" and (" suffix=")">
+				<choose>
+					<when test="type == 'TCW'.toString()">
+						title like '%'||#{keyword}||'%' or
+						content like '%'||#{keyword}||'%' or
+						csid like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'TC'.toString()">
+						title like '%'||#{keyword}||'%' or
+						content like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'TW'.toString()">
+						title like '%'||#{keyword}||'%' or
+						csid like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'CW'.toString()">
+						content like '%'||#{keyword}||'%' or
+						csid like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'T'.toString()">
+						title like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'C'.toString()">
+						content like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'W'.toString()">
+						csid like '%'||#{keyword}||'%'
+					</when>
+				</choose>
+			</trim>
+		</if>
+	</sql>
+	<insert id="add" parameterType="cvo">
+		<![CDATA[	
+		insert into tbl_cs(cno, title, csid, cspw, content, regd8, imgfile )
+		values(seq_cs.nextval, #{title}, #{csid}, #{cspw}, #{content}, sysdate, #{imgfile})
+		]]>
+	</insert>
+	<select id="list" resultType="cvo">
+		<![CDATA[
+		SELECT cno, title, csid, regd8
+		FROM
+		(SELECT /*+INDEX_DESC(tbl_cs tbl_cs_pk)*/
+			rownum rn, cno, title, csid, regd8
+		FROM TBL_CS
+		WHERE cno > 0
+			]]>
+		<include refid="cri" />
+		<![CDATA[		
+		and rownum <= #{pageNum}*#{amount})
+		WHERE rn > (#{pageNum}-1)*#{amount}
+	 	]]>
+	</select>
+	<select id="detail" parameterType="java.lang.Integer" resultType="cvo">
+		select * from tbl_cs where cno = #{cno}
+	</select>
+	<!-- <update id="modify" parameterType="cvo">
+		update
+		tbl_book
+		set
+		btitle = #{btitle}, writer = #{writer}, content = #{content}, publisher=#{publisher}, price=#{price}, modd8 = sysdate, bimgfile = #{bimgfile}
+		where
+		bno = #{bno}
+	</update> -->
+	<delete id="remove" parameterType="java.lang.Integer">
+		delete from tbl_cs where cno = #{cno}
+	</delete>
+	<update id="rmImg" parameterType="java.util.HashMap">
+		update tbl_book set imgfile = #{imgfile} where cno = #{cno}
+	</update>
+	<select id="total" resultType="java.lang.Integer" parameterType="cri">
+		select count(cno) from tbl_cs where cno > 0
+		<include refid="cri" />
+	</select>
+</mapper>

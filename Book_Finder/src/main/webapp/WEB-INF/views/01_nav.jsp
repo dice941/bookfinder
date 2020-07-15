@@ -11,7 +11,7 @@
 		<li class="nav-item"><a class="nav-link" href="/book/list">도서 소개 </a></li>
 		<li class="nav-item"><a class="nav-link" href="./50_map.html">지도 </a></li>
 		<li class="nav-item"><a class="nav-link" href="/notice/list">공지사항 </a></li>
-		<li class="nav-item"><a class="nav-link" href="/cscenter.html">고객센터 </a></li>
+		<li class="nav-item"><a class="nav-link" href="/cs/write">고객센터 </a></li>
 		<li class="nav-item"><a class="nav-link" href="./80_signup.html">Sign Up </a></li>
 		<li class="nav-item"><a class="nav-link" href="./90_login.html">Login </a></li>
 	</ul>
