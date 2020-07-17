@@ -11,9 +11,9 @@
 	<h2>리뷰 작성</h2>
 	<form method="post">
 		<div class="form-group">
-			<label for="rvtitle">title : </label> 
-			<input type="text" class="form-control" placeholder="리뷰 제목을 입력해주세요" id="rvtitle" name="rvtitle">
+			<label for="rvtitle">title : </label> <input type="text" class="form-control" placeholder="리뷰 제목을 입력해주세요" id="rvtitle" name="rvtitle">
 		</div>
+
 		<div class="form-group">
 			<label for="rvwriter">writer : </label> <input type="text" class="form-control" placeholder="닉네임을 입력해주세요" id="rvwriter" name="rvwriter">
 		</div>

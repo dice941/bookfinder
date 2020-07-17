@@ -36,249 +36,43 @@
 <!-- 순위 리스트 시작 -->
 <div class="container bg-dark text-center text-white">
 	<br>
-	<div class="mb-3">
-		<div class="row">
-			<div class="col-2">
-				<img src="https://via.placeholder.com/100x100" class="card-img" alt="순위 이미지가 없습니다..">
-			</div>
-			<div class="col-3">
-				<a href="#"><img src="https://via.placeholder.com/150x150" class="card-img" alt="이미지가 없습니다."></a>
-			</div>
-			<div class="col-7">
-				<h4 class="text-left">
-					<a href="#">book title</a>
-				</h4>
-				<div class="row">
-					<div class="col-2 text-right">
-						<p>
-							writer<br> publisher
-						</p>
-					</div>
-					<div class="col-5 text-left">
-						<p>
-							$writer<br> $publisher
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="mb-3">
-		<div class="row">
-			<div class="col-2">
-				<img src="https://via.placeholder.com/100x100" class="card-img" alt="순위 이미지가 없습니다..">
-			</div>
-			<div class="col-3">
-				<a href="#"><img src="https://via.placeholder.com/150x150" class="card-img" alt="이미지가 없습니다."></a>
-			</div>
-			<div class="col-7">
-				<h4 class="text-left">
-					<a href="#">book title</a>
-				</h4>
-				<div class="row">
-					<div class="col-2 text-right">
-						<p>
-							writer<br> publisher
-						</p>
-					</div>
-					<div class="col-5 text-left">
-						<p>
-							$writer<br> $publisher
-						</p>
+	<c:choose>
+		<c:when test="${list ne null && list.size() != 0 }">
+			<c:forEach items="${list }" var="bvo">
+				<div class="mb-3">
+					<div class="row">
+						<div class="col-2">
+							<img src="https://via.placeholder.com/100x100" class="card-img" alt="순위 이미지가 없습니다..">
+						</div>
+						<div class="col-3">
+							<a href="#"><img src="https://via.placeholder.com/150x150" class="card-img" alt="이미지가 없습니다."></a>
+						</div>
+						<div class="col-7">
+							<h4 class="text-left">
+								<a href="/book/detail?bno=${bvo.bno } &pageNum=${pgvo.cri.pageNum } &amount=${pgvo.cri.amount } &type=${pgvo.cri.type } &keyword=${pgvo.cri.keyword }"> ${bvo.btitle }</a>
+							</h4>
+							<div class="row">
+								<div class="col-2 text-right">
+									<p>
+										작가<br> 출판사
+									</p>
+								</div>
+								<div class="col-5 text-left">
+									<p>
+										${bvo.writer }<br> ${bvo.publisher }
+									</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="mb-3">
-		<div class="row">
-			<div class="col-2">
-				<img src="https://via.placeholder.com/100x100" class="card-img" alt="순위 이미지가 없습니다..">
-			</div>
-			<div class="col-3">
-				<a href="#"><img src="https://via.placeholder.com/150x150" class="card-img" alt="이미지가 없습니다."></a>
-			</div>
-			<div class="col-7">
-				<h4 class="text-left">
-					<a href="#">book title</a>
-				</h4>
-				<div class="row">
-					<div class="col-2 text-right">
-						<p>
-							writer<br> publisher
-						</p>
-					</div>
-					<div class="col-5 text-left">
-						<p>
-							$writer<br> $publisher
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="mb-3">
-		<div class="row">
-			<div class="col-2">
-				<img src="https://via.placeholder.com/100x100" class="card-img" alt="순위 이미지가 없습니다..">
-			</div>
-			<div class="col-3">
-				<a href="#"><img src="https://via.placeholder.com/150x150" class="card-img" alt="이미지가 없습니다."></a>
-			</div>
-			<div class="col-7">
-				<h4 class="text-left">
-					<a href="#">book title</a>
-				</h4>
-				<div class="row">
-					<div class="col-2 text-right">
-						<p>
-							writer<br> publisher
-						</p>
-					</div>
-					<div class="col-5 text-left">
-						<p>
-							$writer<br> $publisher
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="mb-3">
-		<div class="row">
-			<div class="col-2">
-				<img src="https://via.placeholder.com/100x100" class="card-img" alt="순위 이미지가 없습니다..">
-			</div>
-			<div class="col-3">
-				<a href="#"><img src="https://via.placeholder.com/150x150" class="card-img" alt="이미지가 없습니다."></a>
-			</div>
-			<div class="col-7">
-				<h4 class="text-left">
-					<a href="#">book title</a>
-				</h4>
-				<div class="row">
-					<div class="col-2 text-right">
-						<p>
-							writer<br> publisher
-						</p>
-					</div>
-					<div class="col-5 text-left">
-						<p>
-							$writer<br> $publisher
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="mb-3">
-		<div class="row">
-			<div class="col-2">
-				<img src="https://via.placeholder.com/100x100" class="card-img" alt="순위 이미지가 없습니다..">
-			</div>
-			<div class="col-3">
-				<a href="#"><img src="https://via.placeholder.com/150x150" class="card-img" alt="이미지가 없습니다."></a>
-			</div>
-			<div class="col-7">
-				<h4 class="text-left">
-					<a href="#">book title</a>
-				</h4>
-				<div class="row">
-					<div class="col-2 text-right">
-						<p>
-							writer<br> publisher
-						</p>
-					</div>
-					<div class="col-5 text-left">
-						<p>
-							$writer<br> $publisher
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="mb-3">
-		<div class="row">
-			<div class="col-2">
-				<img src="https://via.placeholder.com/100x100" class="card-img" alt="순위 이미지가 없습니다..">
-			</div>
-			<div class="col-3">
-				<a href="#"><img src="https://via.placeholder.com/150x150" class="card-img" alt="이미지가 없습니다."></a>
-			</div>
-			<div class="col-7">
-				<h4 class="text-left">
-					<a href="#">book title</a>
-				</h4>
-				<div class="row">
-					<div class="col-2 text-right">
-						<p>
-							writer<br> publisher
-						</p>
-					</div>
-					<div class="col-5 text-left">
-						<p>
-							$writer<br> $publisher
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="mb-3">
-		<div class="row">
-			<div class="col-2">
-				<img src="https://via.placeholder.com/100x100" class="card-img" alt="순위 이미지가 없습니다..">
-			</div>
-			<div class="col-3">
-				<a href="#"><img src="https://via.placeholder.com/150x150" class="card-img" alt="이미지가 없습니다."></a>
-			</div>
-			<div class="col-7">
-				<h4 class="text-left">
-					<a href="#">book title</a>
-				</h4>
-				<div class="row">
-					<div class="col-2 text-right">
-						<p>
-							writer<br> publisher
-						</p>
-					</div>
-					<div class="col-5 text-left">
-						<p>
-							$writer<br> $publisher
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="mb-3">
-		<div class="row">
-			<div class="col-2">
-				<img src="https://via.placeholder.com/100x100" class="card-img" alt="순위 이미지가 없습니다..">
-			</div>
-			<div class="col-3">
-				<a href="#"><img src="https://via.placeholder.com/150x150" class="card-img" alt="이미지가 없습니다."></a>
-			</div>
-			<div class="col-7">
-				<h4 class="text-left">
-					<a href="#">book title</a>
-				</h4>
-				<div class="row">
-					<div class="col-2 text-right">
-						<p>
-							writer<br> publisher
-						</p>
-					</div>
-					<div class="col-5 text-left">
-						<p>
-							$writer<br> $publisher
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+			</c:forEach>
+		</c:when>
+		<c:otherwise>
+			<h5>등록된 책이 없습니다!</h5>
+		</c:otherwise>
+	</c:choose>
+
 	<div class="mb-3">
 		<div class="row">
 			<div class="col-2">

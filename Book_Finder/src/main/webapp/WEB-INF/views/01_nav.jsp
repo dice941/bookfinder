@@ -9,7 +9,7 @@
 		<li class="nav-item"><a class="nav-link" href="/rank/list">랭킹 </a></li>
 		<li class="nav-item"><a class="nav-link" href="/review/list">리뷰 </a></li>
 		<li class="nav-item"><a class="nav-link" href="/book/list">도서 소개 </a></li>
-		<li class="nav-item"><a class="nav-link" href="./50_map.html">지도 </a></li>
+		<li class="nav-item"><a class="nav-link" href="/map/map">지도 </a></li>
 		<li class="nav-item"><a class="nav-link" href="/notice/list">공지사항 </a></li>
 		<li class="nav-item"><a class="nav-link" href="/cs/write">고객센터 </a></li>
 		<li class="nav-item"><a class="nav-link" href="./80_signup.html">Sign Up </a></li>

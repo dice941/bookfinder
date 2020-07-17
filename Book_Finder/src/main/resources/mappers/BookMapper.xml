@@ -46,17 +46,19 @@
 	</insert>
 	<select id="list" resultType="bvo">
 		<![CDATA[
-		SELECT bno, btitle, writer, publisher, price
-		FROM
-		(SELECT /*+INDEX_DESC(tbl_book tbl_book_pk)*/
-			rownum rn, bno, btitle, writer, publisher, price 
-		FROM TBL_BOOK 
-		WHERE bno > 0
-			]]>
+			SELECT 
+				bno, btitle, writer, publisher, price
+			FROM
+			(
+				SELECT /*+INDEX_ASC(tbl_book tbl_book_pk)*/
+					ROWNUM rn, bno, btitle, writer, publisher, price 
+				FROM TBL_BOOK 
+				WHERE bno > 0]]>
 		<include refid="cri" />
-		<![CDATA[		
-		and rownum <= #{pageNum}*#{amount})
-		WHERE rn > (#{pageNum}-1)*#{amount}
+				<![CDATA[		
+				and rownum <= #{pageNum}*#{amount}
+			)
+			WHERE rn > (#{pageNum}-1)*#{amount}
 	 	]]>
 	</select>
 	<select id="detail" parameterType="java.lang.Integer" resultType="bvo">
@@ -64,11 +66,11 @@
 	</select>
 	<update id="modify" parameterType="bvo">
 		update
-			tbl_book
+		tbl_book
 		set
-			btitle = #{btitle},  writer = #{writer}, content = #{content}, publisher=#{publisher}, price=#{price}, modd8 = sysdate, bimgfile = #{bimgfile}
+		btitle = #{btitle}, writer = #{writer}, content = #{content}, publisher=#{publisher}, price=#{price}, modd8 = sysdate, bimgfile = #{bimgfile}
 		where
-			bno = #{bno}
+		bno = #{bno}
 	</update>
 	<delete id="remove" parameterType="java.lang.Integer">
 		delete from tbl_book where bno = #{bno}
