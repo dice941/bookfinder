@@ -225,6 +225,21 @@
 <!-- 공지 시작 -->
 <div class="container bg-secondary">
 	<h3>Notice</h3>
+	<%-- <c:choose>
+		<c:when test="${list ne null && list.size() != 0 }">
+			<c:forEach items="${list }" var="nvo">
+				<div class="card mb-3">
+					<div class="card-header">
+						<a href="/notice/detail?nno=${nvo.nno }&pageNum=${pgvo.cri.pageNum }&amount=${pgvo.cri.amount }&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }"> ${nvo.title }</a>
+					</div>
+					<div class="card-body">${nvo.content }</div>
+				</div>
+			</c:forEach>
+		</c:when>
+		<c:otherwise>
+			<td colspan="5"><h5>등록된 공지사항이 없습니다!</h5></td>
+		</c:otherwise>
+	</c:choose> --%>
 	<div class="card mb-3">
 		<div class="card-header">
 			<h5>notice title</h5>
@@ -237,12 +252,7 @@
 		</div>
 		<div class="card-body">notice content</div>
 	</div>
-	<div class="card mb-3">
-		<div class="card-header">
-			<h5>notice title</h5>
-		</div>
-		<div class="card-body">notice content</div>
-	</div>
+
 	<br>
 </div>
 

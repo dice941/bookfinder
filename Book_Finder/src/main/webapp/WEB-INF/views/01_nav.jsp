@@ -12,8 +12,8 @@
 		<li class="nav-item"><a class="nav-link" href="/map/map">지도 </a></li>
 		<li class="nav-item"><a class="nav-link" href="/notice/list">공지사항 </a></li>
 		<li class="nav-item"><a class="nav-link" href="/cs/write">고객센터 </a></li>
-		<li class="nav-item"><a class="nav-link" href="./80_signup.html">Sign Up </a></li>
-		<li class="nav-item"><a class="nav-link" href="./90_login.html">Login </a></li>
+		<li class="nav-item"><a class="nav-link" href="./signup.html">Sign Up </a></li>
+		<li class="nav-item"><a class="nav-link" href="/Login">Login </a></li>
 	</ul>
 </nav>
 <!-- 네비 끝 -->
